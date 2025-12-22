@@ -1,3 +1,4 @@
+import 'package:ecommerce_firebase/core/common_widgets/primary_buttonn.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -79,22 +80,7 @@ class AuthPage extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Login Button (theme driven)
-              ElevatedButton(
-                onPressed: () {
-                  // email/password login
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                ),
-                child: Text(
-                  'Login',
-                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-
+              PrimaryButton(text: "Login", onPressed: () {}),
               const SizedBox(height: 24),
 
               // Divider

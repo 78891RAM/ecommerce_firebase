@@ -1,4 +1,5 @@
 import 'package:ecommerce_firebase/features/bottom_navigationbar/bottom_navigationbar.dart';
+import 'package:ecommerce_firebase/features/cart/presentation/cart_page.dart';
 import 'package:ecommerce_firebase/features/home/presentation/home_details.dart';
 import 'package:ecommerce_firebase/features/home/presentation/home_page.dart';
 import 'package:ecommerce_firebase/features/login/auth.dart';
@@ -40,6 +41,7 @@ final GoRouter router = GoRouter(
           path: '/profile',
           builder: (context, state) => const ProfilePage(),
         ),
+        GoRoute(path: '/cart', builder: (context, state) => const CartPage()),
       ],
     ),
   ],
