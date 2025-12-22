@@ -5,48 +5,78 @@ import 'package:ecommerce_firebase/features/home/presentation/home_details.dart'
 import 'package:ecommerce_firebase/features/home/presentation/home_page.dart';
 import 'package:ecommerce_firebase/features/login/auth.dart';
 import 'package:ecommerce_firebase/features/profile/presentation/profile_page.dart';
+import 'package:ecommerce_firebase/routes/app_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
   initialLocation: '/login',
-  routes: <RouteBase>[
+  routes: [
+    // ================= AUTH =================
     GoRoute(
       path: '/login',
-      builder: (BuildContext context, GoRouterState state) {
-        return const AuthPage();
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: const AuthPage(),
+          transitionsBuilder: AppTransitions.fade,
+        );
       },
     ),
 
+    // ================= MAIN APP (BOTTOM TABS) =================
     ShellRoute(
-      builder: (BuildContext context, GoRouterState state, Widget child) {
-        return Scaffold(body: child, bottomNavigationBar: EcommerceBottomBar());
+      builder: (context, state, child) {
+        return Scaffold(
+          body: child,
+          bottomNavigationBar: const EcommerceBottomBar(),
+        );
       },
       routes: [
+        // HOME TAB (NO animation)
         GoRoute(
           path: '/home',
-          builder: (BuildContext context, GoRouterState state) {
-            return const Homepage();
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: Homepage());
           },
-          routes: <RouteBase>[
+          routes: [
+            // PRODUCT DETAILS (WITH animation)
             GoRoute(
               path: 'product_details',
-              builder: (BuildContext context, GoRouterState state) {
-                return const ProductDetailsPage();
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+                  key: state.pageKey,
+                  child: const ProductDetailsPage(),
+                  transitionsBuilder: AppTransitions.fadeScale,
+                );
               },
             ),
           ],
         ),
 
+        // PROFILE TAB (NO animation)
         GoRoute(
           path: '/profile',
-          builder: (context, state) => const ProfilePage(),
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: ProfilePage());
+          },
         ),
+
+        // FAVORITES TAB (NO animation)
         GoRoute(
           path: '/favorites',
-          builder: (context, state) => const FavoritesPage(),
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: FavoritesPage());
+          },
         ),
-        GoRoute(path: '/cart', builder: (context, state) => const CartPage()),
+
+        // CART TAB (NO animation)
+        GoRoute(
+          path: '/cart',
+          pageBuilder: (context, state) {
+            return const NoTransitionPage(child: CartPage());
+          },
+        ),
       ],
     ),
   ],
