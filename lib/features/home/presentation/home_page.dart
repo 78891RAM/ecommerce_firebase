@@ -1,3 +1,4 @@
+import 'package:ecommerce_firebase/core/constants/color_palate.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -16,18 +17,24 @@ class Homepage extends StatelessWidget {
             centerTitle: true,
             pinned: true,
             floating: true,
-            backgroundColor: Colors.white,
+            backgroundColor: ColorPalette.primary,
             title: const Text(
               "ShopEasy",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: ColorPalette.backgroundWhite),
             ),
             leading: IconButton(
-              icon: PhosphorIcon((PhosphorIconsLight.list)),
+              icon: PhosphorIcon(
+                (PhosphorIconsLight.list),
+                color: ColorPalette.backgroundWhite,
+              ),
               onPressed: () {},
             ),
             actions: [
               IconButton(
-                icon: PhosphorIcon((PhosphorIconsLight.shoppingCart)),
+                icon: PhosphorIcon(
+                  (PhosphorIconsLight.shoppingCart),
+                  color: ColorPalette.backgroundWhite,
+                ),
                 onPressed: () {},
               ),
             ],
