@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class AuthPage extends StatelessWidget {
   const AuthPage({super.key});
@@ -6,15 +8,21 @@ class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.fromLTRB(
+            24,
+            24,
+            24,
+            MediaQuery.of(context).viewInsets.bottom + 24,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              const Spacer(),
+              const SizedBox(height: 80),
 
-              // 🔐 Title
+              // Title
               Text(
                 'Welcome Back',
                 style: Theme.of(context).textTheme.headlineMedium?.copyWith(
@@ -33,34 +41,36 @@ class AuthPage extends StatelessWidget {
 
               const SizedBox(height: 32),
 
-              // 📧 Email
+              // Email
               TextFormField(
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Email',
                   hintText: 'you@example.com',
-                  border: OutlineInputBorder(),
+                  prefixIcon: PhosphorIcon(PhosphorIconsLight.envelope),
                 ),
+                keyboardType: TextInputType.emailAddress,
+                textInputAction: TextInputAction.next,
               ),
 
               const SizedBox(height: 16),
 
-              // 🔑 Password
+              // Password
               TextFormField(
                 obscureText: true,
-                decoration: const InputDecoration(
+                decoration: InputDecoration(
                   labelText: 'Password',
-                  border: OutlineInputBorder(),
+                  prefixIcon: PhosphorIcon(PhosphorIconsLight.lock),
                 ),
+                textInputAction: TextInputAction.done,
               ),
 
               const SizedBox(height: 12),
 
-              // ❓ Forgot password
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
                   onPressed: () {
-                    // navigate to forgot password
+                    // forgot password
                   },
                   child: const Text('Forgot password?'),
                 ),
@@ -68,20 +78,26 @@ class AuthPage extends StatelessWidget {
 
               const SizedBox(height: 16),
 
-              // 🔓 Login button
+              // Login Button (theme driven)
               ElevatedButton(
                 onPressed: () {
                   // email/password login
                 },
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  padding: const EdgeInsets.symmetric(vertical: 12),
                 ),
-                child: const Text('Login'),
+                child: Text(
+                  'Login',
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ),
 
               const SizedBox(height: 24),
 
-              // ➖ Divider
+              // Divider
               Row(
                 children: const [
                   Expanded(child: Divider()),
@@ -95,35 +111,35 @@ class AuthPage extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // 🔵 Google Login
+              // Google Login
               OutlinedButton.icon(
                 onPressed: () {
-                  // Google sign-in logic
+                  context.go('/home');
                 },
-                icon: const Icon(Icons.g_mobiledata),
+                icon: PhosphorIcon(PhosphorIconsBold.googleLogo, size: 24),
                 label: const Text('Continue with Google'),
-                style: OutlinedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 14),
-                ),
               ),
 
               const SizedBox(height: 24),
 
-              // 🆕 Register
+              // Register
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text('Don’t have an account?'),
+                  Text(
+                    'Don’t have an account?',
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
                   TextButton(
                     onPressed: () {
-                      // navigate to register
+                      // go to register
                     },
                     child: const Text('Sign up'),
                   ),
                 ],
               ),
 
-              const Spacer(),
+              const SizedBox(height: 80),
             ],
           ),
         ),

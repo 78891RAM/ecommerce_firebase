@@ -1,3 +1,4 @@
+import 'package:ecommerce_firebase/core/constants/color_palate.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -28,7 +29,7 @@ class EcommerceBottomBar extends StatelessWidget {
         }
       },
       type: BottomNavigationBarType.fixed,
-      selectedItemColor: Colors.deepPurple,
+      selectedItemColor: ColorPalette.primary,
       unselectedItemColor: Colors.grey,
       items: const [
         BottomNavigationBarItem(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 class Homepage extends StatelessWidget {
@@ -42,11 +43,19 @@ class Homepage extends StatelessWidget {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: const TextField(
+                child: TextField(
+                  textAlignVertical: TextAlignVertical.center,
                   decoration: InputDecoration(
-                    icon: Icon(Icons.search),
-                    hintText: "Search products, brands...",
-                    border: InputBorder.none,
+                    hintText: 'Search products, brands...',
+
+                    prefixIcon: Icon(Icons.search),
+                  ).applyDefaults(
+                    Theme.of(context).inputDecorationTheme.copyWith(
+                      fillColor: Colors.white,
+                      border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                    ),
                   ),
                 ),
               ),
@@ -141,49 +150,55 @@ class Homepage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             sliver: SliverGrid(
               delegate: SliverChildBuilderDelegate((context, index) {
-                return Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                    boxShadow: const [
-                      BoxShadow(color: Colors.black12, blurRadius: 4),
-                    ],
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: ClipRRect(
-                          borderRadius: const BorderRadius.vertical(
-                            top: Radius.circular(12),
+                return InkWell(
+                  onTap: () {
+                    context.go("/home/product_details");
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: const [
+                        BoxShadow(color: Colors.black12, blurRadius: 4),
+                      ],
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: ClipRRect(
+                            borderRadius: const BorderRadius.vertical(
+                              top: Radius.circular(12),
+                            ),
+                            child: Image.network(
+                              "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
+                              fit: BoxFit.cover,
+                              width: double.infinity,
+                            ),
                           ),
-                          child: Image.network(
-                            "https://images.unsplash.com/photo-1523275335684-37898b6baf30",
-                            fit: BoxFit.cover,
-                            width: double.infinity,
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Text(
+                            "Product Name",
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Text(
-                          "Product Name",
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+                        const Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 8),
+                          child: Text(
+                            "\$99",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
                         ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
-                        child: Text(
-                          "\$99",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                    ],
+                        const SizedBox(height: 8),
+                      ],
+                    ),
                   ),
                 );
               }, childCount: 10),
+
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 12,

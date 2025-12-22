@@ -1,5 +1,7 @@
+import 'package:ecommerce_firebase/core/app_theme/app_theme.dart';
 import 'package:ecommerce_firebase/routes/ecommerce_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,14 +12,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Ecommerce Firebase',
-      debugShowCheckedModeBanner: false,
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder:
+          (context, child) => MaterialApp.router(
+            title: 'Ecommerce Firebase',
+            debugShowCheckedModeBanner: false,
 
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
-      routerConfig: router,
+            theme: apptheme,
+            routerConfig: router,
+          ),
     );
   }
 }
