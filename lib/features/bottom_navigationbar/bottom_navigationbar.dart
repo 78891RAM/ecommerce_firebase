@@ -11,6 +11,7 @@ class EcommerceBottomBar extends StatelessWidget {
     final location = GoRouterState.of(context).matchedLocation;
 
     return BottomNavigationBar(
+      backgroundColor: ColorPalette.backgroundWhite,
       currentIndex: _indexFromLocation(location),
       onTap: (index) {
         switch (index) {
@@ -30,7 +31,7 @@ class EcommerceBottomBar extends StatelessWidget {
       },
       type: BottomNavigationBarType.fixed,
       selectedItemColor: ColorPalette.primary,
-      unselectedItemColor: Colors.grey,
+      unselectedItemColor: ColorPalette.greyText,
       items: const [
         BottomNavigationBarItem(
           icon: PhosphorIcon(PhosphorIconsLight.house),

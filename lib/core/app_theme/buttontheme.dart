@@ -10,5 +10,4 @@ final ElevatedButtonThemeData customElevatedButtonTheme =
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
         textStyle: const TextStyle(color: ColorPalette.backgroundWhite),
       ),
-      
     );

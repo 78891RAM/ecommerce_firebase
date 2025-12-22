@@ -1,3 +1,4 @@
+import 'package:ecommerce_firebase/core/common_widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_firebase/core/constants/color_palate.dart';
 
@@ -10,18 +11,7 @@ class ProfilePage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: ColorPalette.backgroundWhite2,
-      appBar: AppBar(
-        backgroundColor: ColorPalette.primary,
-        elevation: 0,
-        centerTitle: true,
-        title: Text(
-          'Profile',
-          style: theme.textTheme.titleLarge?.copyWith(
-            color: Colors.white,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-      ),
+      appBar: PrimaryAppBar(title: 'Profile'),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
