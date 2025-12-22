@@ -50,7 +50,13 @@ class CartPage extends StatelessWidget {
               const SizedBox(height: 12),
 
               // Checkout button
-              PrimaryButton(text: 'Proceed to Checkout', onPressed: () {}),
+              SizedBox(
+                width: double.infinity,
+                child: PrimaryButton(
+                  text: 'Proceed to Checkout',
+                  onPressed: () {},
+                ),
+              ),
             ],
           ),
         ),

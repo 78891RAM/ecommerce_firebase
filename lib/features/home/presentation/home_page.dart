@@ -1,4 +1,5 @@
 import 'package:ecommerce_firebase/core/constants/color_palate.dart';
+import 'package:ecommerce_firebase/features/home/presentation/widgets/crousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -29,6 +30,7 @@ class Homepage extends StatelessWidget {
               ),
               onPressed: () {},
             ),
+
             actions: [
               IconButton(
                 icon: PhosphorIcon(
@@ -68,6 +70,12 @@ class Homepage extends StatelessWidget {
               ),
             ),
           ),
+          // SliverToBoxAdapter(
+          //   child: Padding(
+          //     padding: const EdgeInsets.symmetric(vertical: 8),
+          //     child: HomeSliverCarousel(),
+          //   ),
+          // ),
 
           // ================= CATEGORIES =================
           SliverToBoxAdapter(

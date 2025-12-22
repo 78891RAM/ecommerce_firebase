@@ -22,7 +22,7 @@ class EcommerceBottomBar extends StatelessWidget {
             context.go('/favorites');
             break;
           case 2:
-            context.go('/favorites');
+            context.go('/cart');
             break;
           case 3:
             context.go('/profile');
