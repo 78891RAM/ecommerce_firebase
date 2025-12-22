@@ -19,10 +19,10 @@ class EcommerceBottomBar extends StatelessWidget {
             context.go('/home');
             break;
           case 1:
-            context.go('/search');
+            context.go('/favorites');
             break;
           case 2:
-            context.go('/cart');
+            context.go('/favorites');
             break;
           case 3:
             context.go('/profile');
@@ -38,8 +38,8 @@ class EcommerceBottomBar extends StatelessWidget {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: PhosphorIcon(PhosphorIconsLight.magnifyingGlass),
-          label: 'Search',
+          icon: PhosphorIcon(PhosphorIconsLight.heart),
+          label: 'Favorites',
         ),
         BottomNavigationBarItem(
           icon: PhosphorIcon(PhosphorIconsLight.shoppingCart),
@@ -54,7 +54,7 @@ class EcommerceBottomBar extends StatelessWidget {
   }
 
   int _indexFromLocation(String location) {
-    if (location.startsWith('/search')) return 1;
+    if (location.startsWith('/favorites')) return 1;
     if (location.startsWith('/cart')) return 2;
     if (location.startsWith('/profile')) return 3;
     return 0;
