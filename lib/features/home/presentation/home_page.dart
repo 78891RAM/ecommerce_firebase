@@ -70,12 +70,19 @@ class Homepage extends StatelessWidget {
               ),
             ),
           ),
-          // SliverToBoxAdapter(
-          //   child: Padding(
-          //     padding: const EdgeInsets.symmetric(vertical: 8),
-          //     child: HomeSliverCarousel(),
-          //   ),
-          // ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: SizedBox(
+                height: 180,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+
+                  child: HomeSliverCarousel(),
+                ),
+              ),
+            ),
+          ),
 
           // ================= CATEGORIES =================
           SliverToBoxAdapter(

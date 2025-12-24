@@ -3,7 +3,7 @@ import 'package:ecommerce_firebase/features/cart/presentation/cart_page.dart';
 import 'package:ecommerce_firebase/features/favorites/presentation/favorites_page.dart';
 import 'package:ecommerce_firebase/features/home/presentation/home_details.dart';
 import 'package:ecommerce_firebase/features/home/presentation/home_page.dart';
-import 'package:ecommerce_firebase/features/login/auth.dart';
+import 'package:ecommerce_firebase/features/login/presentation/auth.dart';
 import 'package:ecommerce_firebase/features/profile/presentation/profile_page.dart';
 import 'package:ecommerce_firebase/routes/app_transition.dart';
 import 'package:flutter/material.dart';
