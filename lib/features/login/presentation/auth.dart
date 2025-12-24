@@ -80,7 +80,9 @@ class AuthPage extends StatelessWidget {
               const SizedBox(height: 16),
 
               // Login Button (theme driven)
-              PrimaryButton(text: "Login", onPressed: () {}),
+              PrimaryButton(text: "Login", onPressed: () {
+                context.go('/home');
+              }),
               const SizedBox(height: 24),
 
               // Divider
@@ -100,6 +102,8 @@ class AuthPage extends StatelessWidget {
               // Google Login
               OutlinedButton.icon(
                 onPressed: () {
+
+                
                   context.go('/home');
                 },
                 icon: PhosphorIcon(PhosphorIconsBold.googleLogo, size: 24),
