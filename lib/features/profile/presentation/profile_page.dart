@@ -1,6 +1,7 @@
 import 'package:ecommerce_firebase/core/common_widgets/app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:ecommerce_firebase/core/constants/color_palate.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -108,7 +109,7 @@ class ProfilePage extends StatelessWidget {
             iconColor: ColorPalette.buttonRed,
             textColor: ColorPalette.buttonRed,
             onTap: () {
-              // logout logic
+             context.go(  '/login');  
             },
           ),
         ],
