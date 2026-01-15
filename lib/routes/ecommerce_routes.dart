@@ -1,10 +1,11 @@
-import 'package:ecommerce_firebase/features/bottom_navigationbar/bottom_navigationbar.dart';
-import 'package:ecommerce_firebase/features/cart/presentation/cart_page.dart';
-import 'package:ecommerce_firebase/features/favorites/presentation/favorites_page.dart';
-import 'package:ecommerce_firebase/features/home/presentation/home_details.dart';
-import 'package:ecommerce_firebase/features/home/presentation/home_page.dart';
-import 'package:ecommerce_firebase/features/login/presentation/auth.dart';
-import 'package:ecommerce_firebase/features/profile/presentation/profile_page.dart';
+import 'package:ecommerce_firebase/module/admin/dashboard/presentation/admin_dashboard.dart';
+import 'package:ecommerce_firebase/module/user/features/bottom_navigationbar/bottom_navigationbar.dart';
+import 'package:ecommerce_firebase/module/user/features/cart/presentation/cart_page.dart';
+import 'package:ecommerce_firebase/module/user/features/favorites/presentation/favorites_page.dart';
+import 'package:ecommerce_firebase/module/user/features/home/presentation/home_details.dart';
+import 'package:ecommerce_firebase/module/user/features/home/presentation/home_page.dart';
+import 'package:ecommerce_firebase/module/user/features/login/presentation/auth.dart';
+import 'package:ecommerce_firebase/module/user/features/profile/presentation/profile_page.dart';
 import 'package:ecommerce_firebase/routes/app_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -12,6 +13,16 @@ import 'package:go_router/go_router.dart';
 final GoRouter router = GoRouter(
   initialLocation: '/login',
   routes: [
+    // admin
+    GoRoute(
+      path: '/admin_dashboard',
+      pageBuilder: (context, state) {
+        return CustomTransitionPage(
+          transitionsBuilder: AppTransitions.fade,
+          child: AdminDashboardPage(),
+        );
+      },
+    ),
     // ================= AUTH =================
     GoRoute(
       path: '/login',

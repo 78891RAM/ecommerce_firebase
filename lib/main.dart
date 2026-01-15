@@ -2,6 +2,7 @@ import 'package:ecommerce_firebase/core/app_theme/app_theme.dart';
 import 'package:ecommerce_firebase/routes/ecommerce_routes.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
@@ -21,12 +22,14 @@ class MyApp extends StatelessWidget {
       minTextAdapt: true,
       splitScreenMode: true,
       builder:
-          (context, child) => MaterialApp.router(
-            title: 'Ecommerce Firebase',
-            debugShowCheckedModeBanner: false,
+          (context, child) => ProviderScope(
+            child: MaterialApp.router(
+              title: 'Ecommerce Firebase',
+              debugShowCheckedModeBanner: false,
 
-            theme: apptheme,
-            routerConfig: router,
+              theme: apptheme,
+              routerConfig: router,
+            ),
           ),
     );
   }
