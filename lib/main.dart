@@ -7,6 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await ScreenUtil.ensureScreenSize();
   await Firebase.initializeApp();
 
   runApp(const MyApp());
@@ -21,16 +22,19 @@ class MyApp extends StatelessWidget {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder:
-          (context, child) => ProviderScope(
-            child: MaterialApp.router(
-              title: 'Ecommerce Firebase',
-              debugShowCheckedModeBanner: false,
+      builder: (context, child) {
+        ScreenUtil.init(context);
 
-              theme: apptheme,
-              routerConfig: router,
-            ),
+        return ProviderScope(
+          child: MaterialApp.router(
+            title: 'Ecommerce Firebase',
+            debugShowCheckedModeBanner: false,
+
+            theme: apptheme,
+            routerConfig: router,
           ),
+        );
+      },
     );
   }
 }
