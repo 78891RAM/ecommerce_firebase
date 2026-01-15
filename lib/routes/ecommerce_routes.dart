@@ -1,5 +1,7 @@
+import 'package:ecommerce_firebase/module/admin/admin_product/presentation/admin_product.dart';
 import 'package:ecommerce_firebase/module/admin/bottom_navigationbar/bottom_navigation.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/admin_dashboard.dart';
+import 'package:ecommerce_firebase/module/admin/orders/presentation/admin_orders.dart';
 import 'package:ecommerce_firebase/module/user/features/bottom_navigationbar/bottom_navigationbar.dart';
 import 'package:ecommerce_firebase/module/user/features/cart/presentation/cart_page.dart';
 import 'package:ecommerce_firebase/module/user/features/favorites/presentation/favorites_page.dart';
@@ -33,14 +35,14 @@ final GoRouter router = GoRouter(
             );
           },
         ),
-        // GoRoute(
-        //   path: '/admin/orders',
-        //   builder: (_, __) => const AdminOrdersPage(),
-        // ),
-        // GoRoute(
-        //   path: '/admin/products',
-        //   builder: (_, __) => const AdminProductsPage(),
-        // ),
+        GoRoute(
+          path: '/admin/orders',
+          builder: (_, __) => const AdminOrdersPage(),
+        ),
+        GoRoute(
+          path: '/admin/products',
+          builder: (_, __) => const AdminProductPage(),
+        ),
         GoRoute(
           path: '/admin/profile',
           builder: (_, __) => const ProfilePage(role: ProfileRole.user),
