@@ -123,7 +123,7 @@ class AuthPage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      context.go("/admin_dashboard");
+                      context.go("/admin/dashboard");
                     },
                     child: const Text('Sign up'),
                   ),

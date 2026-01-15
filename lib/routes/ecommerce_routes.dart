@@ -45,7 +45,7 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: '/admin/profile',
-          builder: (_, __) => const ProfilePage(role: ProfileRole.user),
+          builder: (_, __) => const ProfilePage(role: ProfileRole.admin),
         ),
       ],
     ),
