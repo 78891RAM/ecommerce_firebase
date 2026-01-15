@@ -1,6 +1,6 @@
 import 'package:ecommerce_firebase/core/common_widgets/botttom_sheet/app_bottomsheet.dart';
 import 'package:ecommerce_firebase/core/common_widgets/silverapp_bar.dart';
-import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/add_form/add_form.dart';
+import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/add_product_form/add_form.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/analytics_card/analytics_grid.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/appbar_title.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/quick_actions.dart';
@@ -17,7 +17,7 @@ class AdminDashboardPage extends StatelessWidget {
     return Scaffold(
       body: CustomScrollView(
         slivers: [
-          // 🔹 APP BAR
+          //  APP BAR
           SilverAppBar(
             leading: const ImageAvatar(),
             flexibleSpace: const AdminAppBarTitle(),
@@ -40,21 +40,32 @@ class AdminDashboardPage extends StatelessWidget {
             ],
           ),
 
-          // 🔹 STATS
+          //  STATS
           const SliverPadding(
             padding: EdgeInsets.all(16),
             sliver: AdminStatsGrid(),
           ),
 
-          // 🔹 QUICK ACTIONS
+          //  QUICK ACTIONS
           const SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsetsGeometry.all(16),
             sliver: QuickActionsSection(),
           ),
 
           SliverToBoxAdapter(child: const RevenueSection()),
 
-          // 🔹 RECENT ORDERS
+          SliverPadding(
+            padding: EdgeInsetsGeometry.all(16),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                "Recent Orders",
+
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+            ),
+          ),
+
+          //  RECENT ORDERS
           const SliverPadding(
             padding: EdgeInsets.all(16),
             sliver: RecentOrdersSection(),
