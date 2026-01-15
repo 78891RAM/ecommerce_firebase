@@ -7,6 +7,7 @@ import 'package:ecommerce_firebase/module/user/features/home/presentation/home_d
 import 'package:ecommerce_firebase/module/user/features/home/presentation/home_page.dart';
 import 'package:ecommerce_firebase/module/user/features/login/presentation/auth.dart';
 import 'package:ecommerce_firebase/module/user/features/profile/presentation/profile_page.dart';
+import 'package:ecommerce_firebase/module/user/features/profile/presentation/widgets/profile_role.dart';
 import 'package:ecommerce_firebase/routes/app_transition.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -40,10 +41,10 @@ final GoRouter router = GoRouter(
         //   path: '/admin/products',
         //   builder: (_, __) => const AdminProductsPage(),
         // ),
-        // GoRoute(
-        //   path: '/admin/profile',
-        //   builder: (_, __) => const AdminProfilePage(),
-        // ),
+        GoRoute(
+          path: '/admin/profile',
+          builder: (_, __) => const ProfilePage(role: ProfileRole.user),
+        ),
       ],
     ),
     // ================= AUTH =================
@@ -92,7 +93,9 @@ final GoRouter router = GoRouter(
         GoRoute(
           path: '/profile',
           pageBuilder: (context, state) {
-            return const NoTransitionPage(child: ProfilePage());
+            return const NoTransitionPage(
+              child: ProfilePage(role: ProfileRole.user),
+            );
           },
         ),
 

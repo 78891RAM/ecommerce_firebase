@@ -5,7 +5,7 @@ import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/a
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/appbar_title.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/quick_actions.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/recent_orders.dart';
-import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/revenue_graph/%20revenue_section.dart';
+import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/revenue_graph/revenue_section.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -61,26 +61,6 @@ class AdminDashboardPage extends StatelessWidget {
           ),
         ],
       ),
-    );
-  }
-
-  void _openAddProduct(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-      ),
-      builder:
-          (_) => Padding(
-            padding: EdgeInsets.only(
-              left: 16,
-              right: 16,
-              top: 16,
-              bottom: MediaQuery.of(context).viewInsets.bottom + 16,
-            ),
-            child: const AddProductForm(),
-          ),
     );
   }
 }

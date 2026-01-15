@@ -1,0 +1,1 @@
+enum ProfileRole { user, admin }
