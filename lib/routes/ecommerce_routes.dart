@@ -1,3 +1,4 @@
+import 'package:ecommerce_firebase/module/admin/bottom_navigationbar/bottom_navigation.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/admin_dashboard.dart';
 import 'package:ecommerce_firebase/module/user/features/bottom_navigationbar/bottom_navigationbar.dart';
 import 'package:ecommerce_firebase/module/user/features/cart/presentation/cart_page.dart';
@@ -14,14 +15,36 @@ final GoRouter router = GoRouter(
   initialLocation: '/login',
   routes: [
     // admin
-    GoRoute(
-      path: '/admin_dashboard',
-      pageBuilder: (context, state) {
-        return CustomTransitionPage(
-          transitionsBuilder: AppTransitions.fade,
-          child: AdminDashboardPage(),
+    ShellRoute(
+      builder: (context, state, child) {
+        return Scaffold(
+          body: child,
+          bottomNavigationBar: const AdminEcommerceBottomBar(),
         );
       },
+      routes: [
+        GoRoute(
+          path: '/admin_dashboard',
+          pageBuilder: (context, state) {
+            return CustomTransitionPage(
+              transitionsBuilder: AppTransitions.fade,
+              child: AdminDashboardPage(),
+            );
+          },
+        ),
+        // GoRoute(
+        //   path: '/admin/orders',
+        //   builder: (_, __) => const AdminOrdersPage(),
+        // ),
+        // GoRoute(
+        //   path: '/admin/products',
+        //   builder: (_, __) => const AdminProductsPage(),
+        // ),
+        // GoRoute(
+        //   path: '/admin/profile',
+        //   builder: (_, __) => const AdminProfilePage(),
+        // ),
+      ],
     ),
     // ================= AUTH =================
     GoRoute(

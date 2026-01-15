@@ -1,3 +1,4 @@
+import 'package:ecommerce_firebase/core/common_widgets/botttom_sheet/app_bottomsheet.dart';
 import 'package:ecommerce_firebase/core/common_widgets/silverapp_bar.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/add_form/add_form.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/analytics_card/analytics_grid.dart';
@@ -30,7 +31,11 @@ class AdminDashboardPage extends StatelessWidget {
               ),
               IconButton(
                 icon: PhosphorIcon(PhosphorIconsBold.plus, color: Colors.white),
-                onPressed: () => _openAddProduct(context),
+                onPressed:
+                    () => AppBottomSheet.show(
+                      context: context,
+                      child: AddProductForm(),
+                    ),
               ),
             ],
           ),
