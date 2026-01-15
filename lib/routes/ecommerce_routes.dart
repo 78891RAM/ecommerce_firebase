@@ -27,7 +27,7 @@ final GoRouter router = GoRouter(
       },
       routes: [
         GoRoute(
-          path: '/admin_dashboard',
+          path: '/admin/dashboard',
           pageBuilder: (context, state) {
             return CustomTransitionPage(
               transitionsBuilder: AppTransitions.fade,
