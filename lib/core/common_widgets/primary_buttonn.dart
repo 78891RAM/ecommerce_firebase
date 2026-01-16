@@ -1,3 +1,4 @@
+import 'package:ecommerce_firebase/core/constants/color_palate.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryButton extends StatelessWidget {
@@ -15,7 +16,7 @@ class PrimaryButton extends StatelessWidget {
       child: Text(
         text,
         style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-          color: Colors.white,
+          color: ColorPalette.backgroundWhite,
           fontWeight: FontWeight.w600,
         ),
       ),
