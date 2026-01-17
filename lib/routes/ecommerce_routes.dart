@@ -41,7 +41,11 @@ final GoRouter router = GoRouter(
         ),
         GoRoute(
           path: '/admin/products',
-          builder: (_, __) => const AdminProductPage(),
+          pageBuilder:
+              (_, __) => CustomTransitionPage(
+                child: AdminProductPage(),
+                transitionsBuilder: AppTransitions.fade,
+              ),
         ),
         GoRoute(
           path: '/admin/profile',

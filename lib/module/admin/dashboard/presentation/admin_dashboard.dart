@@ -1,6 +1,6 @@
 import 'package:ecommerce_firebase/core/common_widgets/botttom_sheet/app_bottomsheet.dart';
 import 'package:ecommerce_firebase/core/common_widgets/silverapp_bar.dart';
-import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/add_product_form/add_form.dart';
+import 'package:ecommerce_firebase/module/admin/admin_product/presentation/widgets/add_product_form/add_form.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/analytics_card/analytics_grid.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/appbar_title.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/quick_actions.dart';

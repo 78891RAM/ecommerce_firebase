@@ -1,6 +1,6 @@
 import 'package:ecommerce_firebase/core/common_widgets/primary_buttonn.dart';
 import 'package:ecommerce_firebase/core/common_widgets/textform_field.dart';
-import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/add_product_form/category_field.dart';
+import 'package:ecommerce_firebase/module/admin/admin_product/presentation/widgets/add_product_form/category_field.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/image_picker/image_picker_button.dart';
 import 'package:ecommerce_firebase/module/admin/dashboard/presentation/widgets/image_picker/image_preview.dart';
 import 'package:flutter/material.dart';

@@ -1,4 +1,5 @@
 import 'package:ecommerce_firebase/core/constants/color_palate.dart';
+import 'package:ecommerce_firebase/routes/ecommerce_routes.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -22,7 +23,11 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
           showLeadingIcon
               ? IconButton(
                 icon: const Icon(Icons.arrow_back, color: Colors.white),
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () {
+                  if (router.canPop()) {
+                    router.pop();
+                  }
+                },
               )
               : null,
       backgroundColor: ColorPalette.primary,
